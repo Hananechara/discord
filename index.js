@@ -22,10 +22,10 @@ client.on('message', message => {
 	}
 	if (message.content == '!meteo'){
 		
-		axios.get('http://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=ee30acaddbdacdc273a1606c7ad920d8').then(
+		axios.get('http://api.openweathermap.org/data/2.5/weather?q=London&appid=ee30acaddbdacdc273a1606c7ad920d8').then(
 			function(resp){
-				console.log(resp);
-				message.reply("London"+resp.main.temp_min);
+				console.log(resp.data);
+				message.reply("London"+resp.data.main.temp_min);
 		});
 	}
 		
