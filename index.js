@@ -24,7 +24,7 @@ client.on('message', message => {
 		});
 	}
 	if (res[0].content == '!meteo'){
-		var meteo='http://api.openweathermap.org/data/2.5/weather?q=+'res[1]+'&appid=ee30acaddbdacdc273a1606c7ad920d8'
+		var meteo='http://api.openweathermap.org/data/2.5/weather?q='+res[1]+'&appid=ee30acaddbdacdc273a1606c7ad920d8'
 		console.log(meteo);
 		axios.get(meteo).then(
 			function(resp){
