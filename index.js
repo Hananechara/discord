@@ -5,11 +5,15 @@ client.on('ready', () => {
 	console.log('I am ready!');
 });
 client.on('message', message => {
-	if (message.content === 'ping') {
-		message.reply('pong');
-}
+	
 	if (message.mentions.users.get(client.user.id)) {
 		message.reply('Vous me tagez, mais pourquoi???');
+	}
+	if (message.channel.type=='dm'){
+		message.reply('Bienvenue');
+	}
+	else{
+		message.reply('Message Incompris');
 	}
 	console.log(message);
 });
