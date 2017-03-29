@@ -6,6 +6,7 @@ client.on('ready', () => {
 	console.log('I am ready!');
 });
 client.on('message', message => {
+	var res = message.split(" "); 
 	
 	if (message.mentions.users.get(client.user.id)) {
 		message.reply('Vous me taggez, mais pourquoi???');
@@ -20,12 +21,12 @@ client.on('message', message => {
 				message.reply(resp.data[0].fact);
 		});
 	}
-	if (message.content == '!meteo'){
+	if (res[0].content == '!meteo'){
 		
-		axios.get('http://api.openweathermap.org/data/2.5/weather?q=London&appid=ee30acaddbdacdc273a1606c7ad920d8').then(
+		axios.get('http://api.openweathermap.org/data/2.5/weather?q=+'res[1]+'&appid=ee30acaddbdacdc273a1606c7ad920d8').then(
 			function(resp){
 				console.log(resp.data);
-				message.reply("London"+resp.data.main.temp_min);
+				message.reply(res[1]+" min "+resp.data.main.temp_min+" max "+resp.data.main.temp_max);
 		});
 	}
 		
