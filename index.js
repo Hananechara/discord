@@ -8,6 +8,9 @@ client.on('message', message => {
 	if (message.content === 'ping') {
 		message.reply('pong');
 }
+	if (message.mentions.users.get(client.user.id)) {
+		message.reply('Vous me tagez, mais pourquoi???');
+	}
 	console.log(message);
 });
 client.on('presenceUpdate', function(oldMember, newMember) {
