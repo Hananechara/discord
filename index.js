@@ -32,7 +32,7 @@ client.on('message', message => {
 		console.log();
 		//axios.get('http://api.openweathermap.org/data/2.5/weather?q='+res[1]+'&appid=ee30acaddbdacdc273a1606c7ad920d8&units=metric').then(
 			//function(resp){
-				message.reply(' ',{embed:{'https://www.smashingmagazine.com/wp-content/uploads/2015/06/10-dithering-opt.jpg',image:{'https://www.smashingmagazine.com/wp-content/uploads/2015/06/10-dithering-opt.jpg'}}});
+				message.reply(' ',{embed:{url:'https://www.smashingmagazine.com/wp-content/uploads/2015/06/10-dithering-opt.jpg',image:{url:'https://www.smashingmagazine.com/wp-content/uploads/2015/06/10-dithering-opt.jpg'}}});
 		});
 	}
 		
