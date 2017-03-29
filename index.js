@@ -23,9 +23,8 @@ client.on('message', message => {
 				message.reply(resp.data[0].fact);
 		});
 	}
-	if (res[0].content == '!meteo'){
-		var meteo='http://api.openweathermap.org/data/2.5/weather?q='+res[1]+'&appid=ee30acaddbdacdc273a1606c7ad920d8'
-		console.log(meteo);
+	if (res[0]== '!meteo'){
+		console.log('http://api.openweathermap.org/data/2.5/weather?q='+res[1]+'&appid=ee30acaddbdacdc273a1606c7ad920d8');
 		axios.get(meteo).then(
 			function(resp){
 				message.reply(res[1]+" min "+resp.data.main.temp_min+" max "+resp.data.main.temp_max);
