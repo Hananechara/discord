@@ -31,13 +31,13 @@ client.on('message', message => {
 				
 			}
 		}
-		else{
+		
+	}
+	else{
 			if (!message.author.bot){
 				message.reply('Message Incompris');
 			}
 		}
-	}
-	
 	
 	
   	console.log(message);
