@@ -19,10 +19,11 @@ client.on('message', message => {
 	}
   	console.log(message);
 });
-client.on('presenceUpdate', function(oldMember, newMember) {
+
+client.on('presenceUpdate',function(oldMember, newMember) {
 	console.log(oldMember.presence, '=>', newMember.presence);
 	if  (newMember.user.username == 'hanane'){
-		message.reply('bonjour maitre, je suis le bot de MAMADOU et HANANE, que puis-je faire pour vous aujourd hui..');
+		newMember.sendMessage('bonjour maitre, je suis le bot de MAMADOU et HANANE, que puis-je faire pour vous aujourd hui..');
 	}
 	console.log(newMember.user.username);
 });
