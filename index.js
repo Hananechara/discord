@@ -11,17 +11,18 @@ client.on('message', message => {
 		message.reply('Vous me taggez, mais pourquoi???');
 	}
 	if (message.channel.type=='dm' && !message.author.bot){
-		message.reply('Bienvenue');
-	}
-	if (message.content[0] == '!'){
-		
-		if (message.content[1,-1] == 'blague') {
-			axios.get('http://www.chucknorrisfacts.fr/api/get?data=tri:alea;nb:1').then(
-				function(resp){
-					message.reply(resp.data[0].fact);
+		//message.reply('Bienvenue');
+	
+		if (message.content[0] == '!'){
+			console.log(message.content[1,-1] )
+			if (message.content[1,-1] == 'blague') {
+				axios.get('http://www.chucknorrisfacts.fr/api/get?data=tri:alea;nb:1').then(
+					function(resp){
+						message.reply(resp.data[0].fact);
 				});
 		}
 		}
+	}
 	else{
 	if (!message.author.bot){
 			message.reply('Message Incompris');
