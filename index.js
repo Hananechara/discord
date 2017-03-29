@@ -9,7 +9,7 @@ client.on('message', message => {
 	if (message.mentions.users.get(client.user.id)) {
 		message.reply('Vous me tagez, mais pourquoi???');
 	}
-	if (message.channel.type=='dm'){
+	if (message.channel.type=='dm' && !message.author.bot){
 		message.reply('Bienvenue');
 	}
   	console.log(message);
