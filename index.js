@@ -14,4 +14,4 @@ client.on('presenceUpdate', function(oldMember, newMember) {
 	console.log(oldMember.presence, '=>', newMember.presence);
 });
 client.login(process.env.DISCORD_TOKEN);
-  
+ 
