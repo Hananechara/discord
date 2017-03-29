@@ -7,6 +7,8 @@ client.on('ready', () => {
 });
 client.on('message', message => {
 	var res = message.split(" "); 
+	console.log(res[0]);
+	console.log(res[1]);
 	
 	if (message.mentions.users.get(client.user.id)) {
 		message.reply('Vous me taggez, mais pourquoi???');
@@ -22,10 +24,10 @@ client.on('message', message => {
 		});
 	}
 	if (res[0].content == '!meteo'){
-		
-		axios.get('http://api.openweathermap.org/data/2.5/weather?q=+'res[1]+'&appid=ee30acaddbdacdc273a1606c7ad920d8').then(
+		var meteo='http://api.openweathermap.org/data/2.5/weather?q=+'res[1]+'&appid=ee30acaddbdacdc273a1606c7ad920d8'
+		console.log(meteo);
+		axios.get(meteo).then(
 			function(resp){
-				console.log(resp.data);
 				message.reply(res[1]+" min "+resp.data.main.temp_min+" max "+resp.data.main.temp_max);
 		});
 	}
