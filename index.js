@@ -6,7 +6,7 @@ client.on('ready', () => {
 	console.log('I am ready!');
 });
 client.on('message', message => {
-	var res = message.split(" "); 
+	var res = message.content.split(" "); 
 	console.log(res[0]);
 	console.log(res[1]);
 	
