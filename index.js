@@ -12,25 +12,21 @@ client.on('message', message => {
 	}
 	if (message.channel.type=='dm' && !message.author.bot){
 		//message.reply('Bienvenue');
-	
-	
-			
-			if (message.content == '!blague') {
-				console.log(message.content);
-				axios.get('http://www.chucknorrisfacts.fr/api/get?data=tri:alea;nb:1').then(
-					function(resp){
-						message.reply(resp.data[0].fact);
-				});
-		}
-		else {
-			if (message.content == '!meteo'){
-				axios.get('api.openweathermap.org/data/2.5/weather?q=London').then(
-					function(resp){
-						message.reply("London"+resp.main.temp_min);
-				});
-				
-			}
-		}
+		
+	if (message.content == '!blague') {
+		
+		axios.get('http://www.chucknorrisfacts.fr/api/get?data=tri:alea;nb:1').then(
+			function(resp){
+				message.reply(resp.data[0].fact);
+		});
+	}
+	if (message.content == '!meteo'){
+		axios.get('api.openweathermap.org/data/2.5/weather?q=London').then(
+			function(resp){
+				console.log(resp.main);
+				message.reply("London"+resp.main.temp_min);
+		});
+	}
 		
 	}
 	else{
