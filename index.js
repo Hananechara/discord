@@ -7,8 +7,7 @@ client.on('ready', () => {
 });
 client.on('message', message => {
 	var res = message.content.split(" "); 
-	console.log(res[0]);
-	console.log(res[1]);
+	
 	
 	if (message.mentions.users.get(client.user.id)) {
 		message.reply('Vous me taggez, mais pourquoi???');
@@ -27,6 +26,13 @@ client.on('message', message => {
 		axios.get('http://api.openweathermap.org/data/2.5/weather?q='+res[1]+'&appid=ee30acaddbdacdc273a1606c7ad920d8&units=metric').then(
 			function(resp){
 				message.reply(res[1]+" min "+resp.data.main.temp_min+" max "+resp.data.main.temp_max);
+		});
+	}
+	if (message.content== '!image'){
+		console.log();
+		//axios.get('http://api.openweathermap.org/data/2.5/weather?q='+res[1]+'&appid=ee30acaddbdacdc273a1606c7ad920d8&units=metric').then(
+			//function(resp){
+				message.reply(' ',embed:{'https://www.smashingmagazine.com/wp-content/uploads/2015/06/10-dithering-opt.jpg',image:{'https://www.smashingmagazine.com/wp-content/uploads/2015/06/10-dithering-opt.jpg'}}});
 		});
 	}
 		
