@@ -7,10 +7,15 @@ client.on('ready', () => {
 client.on('message', message => {
 	
 	if (message.mentions.users.get(client.user.id)) {
-		message.reply('Vous me tagez, mais pourquoi???');
+		message.reply('Vous me taggez, mais pourquoi???');
 	}
 	if (message.channel.type=='dm' && !message.author.bot){
 		message.reply('Bienvenue');
+	}
+	else{
+	if (!message.author.bot){
+			message.reply('Message Incompris');
+		}
 	}
   	console.log(message);
 });
