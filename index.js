@@ -13,16 +13,17 @@ client.on('message', message => {
 	if (message.channel.type=='dm' && !message.author.bot){
 		//message.reply('Bienvenue');
 	
-		if (message.content[0] == '!'){
-			console.log(message.content[1,-1] )
-			if (message.content[1,-1] == 'blague') {
+	
+			
+			if (message.content == '!blague') {
+				console.log(message.content);
 				axios.get('http://www.chucknorrisfacts.fr/api/get?data=tri:alea;nb:1').then(
 					function(resp){
 						message.reply(resp.data[0].fact);
 				});
 		}
 		}
-	}
+	
 	else{
 	if (!message.author.bot){
 			message.reply('Message Incompris');
