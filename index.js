@@ -12,9 +12,6 @@ client.on('message', message => {
 	if (message.channel.type=='dm'){
 		message.reply('Bienvenue');
 	}
-	else{
-		message.reply('Message Incompris');
-	}
 	console.log(message);
 });
 client.on('presenceUpdate', function(oldMember, newMember) {
