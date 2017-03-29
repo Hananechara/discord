@@ -15,7 +15,7 @@ client.on('message', message => {
 	}
 	if (message.content[0] == '!'){
 		
-		if (message.content[1,] == 'blague') {
+		if (message.content[1,-1] == 'blague') {
 			axios.get('http://www.chucknorrisfacts.fr/api/get?data=tri:alea;nb:1').then(
 				function(resp){
 					message.reply(resp.data[0].fact);
