@@ -12,7 +12,7 @@ client.on('message', message => {
 	if (message.channel.type=='dm'){
 		message.reply('Bienvenue');
 	}
-	console.log(message);
+  	console.log(message);
 });
 client.on('presenceUpdate', function(oldMember, newMember) {
 	console.log(oldMember.presence, '=>', newMember.presence);
