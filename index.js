@@ -21,6 +21,7 @@ client.on('message', message => {
 });
 client.on('presenceUpdate', function(oldMember, newMember) {
 	console.log(oldMember.presence, '=>', newMember.presence);
+	console.log(newMember);
 });
 client.login(process.env.DISCORD_TOKEN);
  
