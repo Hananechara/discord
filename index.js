@@ -22,13 +22,23 @@ client.on('message', message => {
 						message.reply(resp.data[0].fact);
 				});
 		}
+		else {
+			if (message.content == '!meteo'){
+				axios.get('api.openweathermap.org/data/2.5/weather?q=London').then(
+					function(resp){
+						message.reply("London"+resp.main.temp_min);
+				});
+				
+			}
 		}
-	
-	else{
-	if (!message.author.bot){
-			message.reply('Message Incompris');
+		else{
+			if (!message.author.bot){
+				message.reply('Message Incompris');
+			}
 		}
 	}
+	
+	
 	
   	console.log(message);
 });
