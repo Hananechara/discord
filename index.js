@@ -26,7 +26,7 @@ client.on('message', message => {
 	}
 	if (res[0]== '!image'){
 		console.log();
-		axios.get('https://api.imgur.com/3/gallery/search/q?title:res[1] then(
+		axios.get('https://api.imgur.com/3/gallery/search/q?title:res[1]').then(
 				function(resp){
 			message.reply( "resultat "+resp.data.title);		
 	});
