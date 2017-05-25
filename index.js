@@ -30,9 +30,8 @@ client.on('message', message => {
 
 
 	if (res[0]== '!image'){
-		message.reply(' ',{embed:{url:'https://www.smashingmagazine.com/wp-content/uploads/2015/06/10-dithering-opt.jpg',
+		message.reply('',{embed:{url:'https://www.smashingmagazine.com/wp-content/uploads/2015/06/10-dithering-opt.jpg',
 		image:{url:'https://www.smashingmagazine.com/wp-content/uploads/2015/06/10-dithering-opt.jpg'}}});
-	});
 
 	}
 		
