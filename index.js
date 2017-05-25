@@ -6,17 +6,13 @@ client.on('ready', () => {
 	console.log('I am ready!');
 });
 client.on('message', message => {
-	var res = message.content.split(" "); 
-	
-	
+	var res = message.content.split(" "); 	
 	if (message.mentions.users.get(client.user.id)) {
 		message.reply('Vous me taggez, mais pourquoi???');
 	}
 	if (message.channel.type=='dm' && !message.author.bot){
 		//message.reply('Bienvenue');
-		
 	if (message.content == '!blague') {
-		
 		axios.get('http://www.chucknorrisfacts.fr/api/get?data=tri:alea;nb:1').then(
 			function(resp){
 				message.reply(resp.data[0].fact);
@@ -28,12 +24,12 @@ client.on('message', message => {
 				message.reply(res[1]+" min "+resp.data.main.temp_min+" max "+resp.data.main.temp_max);
 		});
 	}
-	if (message.content== '!image'){
+	if (res[0]== '!image'){
 		console.log();
-		//axios.get('http://api.openweathermap.org/data/2.5/weather?q='+res[1]+'&appid=ee30acaddbdacdc273a1606c7ad920d8&units=metric').then(
-			//function(resp){
-				message.reply(' ',{embed:{url:'https://www.smashingmagazine.com/wp-content/uploads/2015/06/10-dithering-opt.jpg',image:{url:'https://www.smashingmagazine.com/wp-content/uploads/2015/06/10-dithering-opt.jpg'}}});
-		//});
+		axios.get('https://api.imgur.com/3/gallery/search/q?title:res[1] then(
+				function(resp){
+			message.reply( "resultat "+resp.data.title);		
+	});
 	}
 		
 	}
