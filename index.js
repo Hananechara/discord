@@ -25,10 +25,13 @@ client.on('message', message => {
 		});
 	}
 	if (res[0]== '!image'){
+		console.log( '!image');
 		console.log();
 		axios.get('https://api.imgur.com/3/gallery/random/random/').then(
-				function(resp){
-			var link=resp[0].data.link
+				function(resp){			
+			var link=resp[0].data.link;
+			console.log(resp);
+			console.log(link);
 			message.reply(' ',{embed:{url:link,image:{url:link}}});
 	});
 	}
