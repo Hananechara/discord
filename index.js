@@ -5,13 +5,14 @@ const axios = require('axios');
 client.on('ready', () => {
 	console.log('I am ready!');
 });
+
 client.on('message', message => {
 	var res = message.content.split(" "); 	
 	if (message.mentions.users.get(client.user.id)) {
 		message.reply('Vous me taggez, mais pourquoi???');
 	}
 	if (message.channel.type=='dm' && !message.author.bot){
-		//message.reply('Bienvenue');
+		message.reply('Bienvenue');
 
 
 	if (message.content == '!blague') {
@@ -30,10 +31,17 @@ client.on('message', message => {
 
 
 	if (res[0]== '!image'){
-		message.reply('',{embed:{url:'https://www.smashingmagazine.com/wp-content/uploads/2015/06/10-dithering-opt.jpg',
-		image:{url:'https://www.smashingmagazine.com/wp-content/uploads/2015/06/10-dithering-opt.jpg'}}});
-
+		console.log( '!image');
+		console.log();
+		axios.get('https://api.imgur.com/3/image?q='+res[1]).then(
+				function(resp){			
+			var link=resp[0].data.link;
+			console.log(resp);
+			console.log(link);
+			message.reply('',{embed:{url:link,image:{url:link}}});
+	}).catch(console.error);
 	}
+
 		
 	}
 	else{
