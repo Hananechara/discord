@@ -12,7 +12,7 @@ client.on('message', message => {
 		message.reply('Vous me taggez, mais pourquoi???');
 	}
 	if (message.channel.type =='dm' && !message.author.bot){
-		message.reply('Bienvenue');
+		//message.reply('Bienvenue');
 
 	if (message.content == '!blague') {
 		axios.get('http://www.chucknorrisfacts.fr/api/get?data=tri:alea;nb:1').then(
@@ -34,23 +34,34 @@ client.on('message', message => {
 		
 		var header = {
 				" headers" :  
-				{"authorization": "Client-ID {{018d9b095ca5241}}" }
+				{"authorization": "Client-ID 018d9b095ca5241" }
 		};
 		
 	   var imgurUrl = "https://api.imgur.com/3/gallery/search/q?=" + res[1] ;
 		
 	   axios.get(imgurUrl,header).then(
-				function(resp){	
-			var results = resp.data;    
-			var link= results.data[0].link;
+				function(resp){
+
+			  var chunks = [];
+
+			  res.on("data", function (chunk) {
+				chunks.push(chunk);
+			  });
+
+			  res.on("end", function () {
+				var body = Buffer.concat(chunks);
+				console.log(body.toString());
+		    
+			var link= body[0].link;
 			console.log(resp);
 			console.log(link);
 			message.reply('',{embed:{url:link,image:{url:link}}});
+			  });
 	}).catch(console.error);
 	}	
 }
 	else{
-			if ( !message.author.bot){
+			if ( message.author.bot){
 				message.reply('Message Incompris');
 			}
 		}
