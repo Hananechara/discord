@@ -31,10 +31,10 @@ client.on('message', message => {
 
 	if (res[0]== '!image'){
 		console.log( '!image');
-		
+		var apiId="018d9b095ca5241"
 		var header = {
 				" headers" :  
-				{"authorization": "Client-ID {{018d9b095ca5241}}" }
+				{"authorization": "Client-ID : " + apiId }
 		};
 		
 	   var imgurUrl = "https://api.imgur.com/3/gallery/search/q?=" + res[1] ;
@@ -44,19 +44,19 @@ client.on('message', message => {
 
 			  var chunks = [];
 
-			  res.on("data", function (chunk) {
+			  resp.on("data", function (chunk) {
 				chunks.push(chunk);
 			  });
 
-			  res.on("end", function () {
+			  resp.on("end", function () {
 				var body = Buffer.concat(chunks);
 				console.log(body.toString());
 		    
-			var link= body[0].link;
+			var lienImage= body[0].link;
 			console.log(resp);
-			console.log(link);
-			message.reply('',{embed:{url:link,image:{url:link}}});
-			  });
+			console.log(lienImage);
+			message.reply('',{embed:{url:lienImage,image:{url:lienImage}}});
+		});
 	}).catch(console.error);
 	}	
 }
