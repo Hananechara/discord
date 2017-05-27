@@ -30,29 +30,33 @@ client.on('message', message => {
 
 
 	if (res[0]== '!image'){
-		console.log( '!image');
+	
+	
 		var apiId="018d9b095ca5241"
-		var header = {
-				" headers" :  
-				{"authorization": "Client-ID : " + apiId }
-		};
 		
-	   var imgurUrl = "https://api.imgur.com/3/gallery/search/q?=" + res[1] ;
-		
-	   axios.get(imgurUrl,header).then(
-				function(resp){
-
+		var options = {
+			  "method": "GET",
+			  "hostname": "api.imgur.com",
+			  "port": null,
+			  "path":  "https://api.imgur.com/3/gallery/search/q?=" + res[1] +"" ,
+			  "headers": {
+				"authorization": "Client-ID {{018d9b095ca5241}}"
+			  }
+			};
+			
+	
+	   axios(options).then( function(resp){
 			  var chunks = [];
-
 			  resp.on("data", function (chunk) {
+				console.log(resp);
 				chunks.push(chunk);
 			  });
-
 			  resp.on("end", function () {
 				var body = Buffer.concat(chunks);
 				console.log(body.toString());
 		    
 			var lienImage= body[0].link;
+			
 			console.log(resp);
 			console.log(lienImage);
 			message.reply('',{embed:{url:lienImage,image:{url:lienImage}}});
@@ -66,8 +70,7 @@ client.on('message', message => {
 			}
 		}
 	
-	
-  	console.log(message);
+  	//console.log(message);
 });
 
 client.on('presenceUpdate',function(oldMember, newMember) {
