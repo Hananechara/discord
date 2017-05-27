@@ -11,8 +11,8 @@ client.on('message', message => {
 	if (message.mentions.users.get(client.user.id)) {
 		message.reply('Vous me taggez, mais pourquoi???');
 	}
-	if (message.channel.type=='dm' && !message.author.bot){
-		message.reply('Bienvenue');
+	if (message.channel.type =='dm' && !message.author.bot){
+		//message.reply('Bienvenue');
 
 
 	if (message.content == '!blague') {
@@ -35,10 +35,10 @@ client.on('message', message => {
 		
 		var header = {
 				" headers" :  
-				{"authorization": "Client-ID 018d9b095ca5241" }
+				{"authorization": "Client-ID {{018d9b095ca5241}}" }
 		};
 		
-	   var imgurUrl = "https://api.imgur.com/3/gallery/search/q?=" + res[1] + "&q_type=jpeg&q_size_px=500";
+	   var imgurUrl = "https://api.imgur.com/3/gallery/search/q?=" + res[1] ;
 		
 	   axios.get(imgurUrl,header).then(
 				function(resp){	
