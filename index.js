@@ -32,20 +32,26 @@ client.on('message', message => {
 
 	if (res[0]== '!image'){
 		console.log( '!image');
-		console.log();
-		axios.get('https://api.imgur.com/3/image?q='+res[1]).then(
-				function(resp){			
-			var link=resp[0].data.link;
+		
+		var header = {
+				" headers" :  
+				{"authorization": "Client-ID 018d9b095ca5241" }
+		};
+		
+	   var imgurUrl = "https://api.imgur.com/3/gallery/search/q?=" + res[1] + "&q_type=jpeg&q_size_px=500";
+		
+	   axios.get(imgurUrl,header).then(
+				function(resp){	
+			var results = resp.data;    
+			var link= results.data[0].link;
 			console.log(resp);
 			console.log(link);
 			message.reply('',{embed:{url:link,image:{url:link}}});
 	}).catch(console.error);
-	}
-
-		
-	}
+	}	
+}
 	else{
-			if (!message.author.bot){
+			if ( message.author.bot){
 				message.reply('Message Incompris');
 			}
 		}
