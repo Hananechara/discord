@@ -34,7 +34,7 @@ client.on('message', message => {
 		
 		var header = {
 				" headers" :  
-				{"authorization": "Client-ID 018d9b095ca5241" }
+				{"authorization": "Client-ID {{018d9b095ca5241}}" }
 		};
 		
 	   var imgurUrl = "https://api.imgur.com/3/gallery/search/q?=" + res[1] ;
@@ -61,7 +61,7 @@ client.on('message', message => {
 	}	
 }
 	else{
-			if ( message.author.bot){
+			if ( !message.author.bot){
 				message.reply('Message Incompris');
 			}
 		}
