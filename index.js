@@ -12,8 +12,7 @@ client.on('message', message => {
 		message.reply('Vous me taggez, mais pourquoi???');
 	}
 	if (message.channel.type =='dm' && !message.author.bot){
-		//message.reply('Bienvenue');
-
+		message.reply('Bienvenue');
 
 	if (message.content == '!blague') {
 		axios.get('http://www.chucknorrisfacts.fr/api/get?data=tri:alea;nb:1').then(
@@ -51,7 +50,7 @@ client.on('message', message => {
 	}	
 }
 	else{
-			if ( message.author.bot){
+			if ( !message.author.bot){
 				message.reply('Message Incompris');
 			}
 		}
