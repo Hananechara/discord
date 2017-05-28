@@ -37,9 +37,13 @@ client.on('message', message => {
 				"authorization": "Client-ID 018d9b095ca5241" 
 			  }
 			};
-		axios.get(url,options).then( function(resp){
+		axios({
+		url: url,
+		method: 'get',
+		headers: {"authorization": "Client-ID 018d9b095ca5241" },
+		data: text } ).then( function(resp){
 			console.log(resp);
-			var lienImage= resp.data.data[0].link;
+			var lienImage= resp.data[0].link;
 			message.reply('',{embed:{url:lienImage,image:{url:lienImage}}});
 	});
 	}
