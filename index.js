@@ -30,17 +30,15 @@ client.on('message', message => {
 
 	if (res[0]== '!image'){
 	
-		var apiId="018d9b095ca5241"
-		
+		var apiId="018d9b095ca5241";
+		var url= "https://api.imgur.com/3/gallery/search/?q=cats";
 		var options = {
-			  "method": "GET",
-			  "url":  "https://api.imgur.com/3/gallery/search/?q=cats",
 			  "headers": {
 				"authorization": "Client-ID 018d9b095ca5241" 
 			  }
 			};
 
-		axios(options).then( function(resp){
+		axios.get(url, options).then( function(resp){
 			  console.log(resp);
 			  var chunks = [];
 			  resp.on("data", function (chunk) {
