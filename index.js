@@ -31,15 +31,14 @@ client.on('message', message => {
 	if (res[0]== '!image'){
 	
 		var apiId="018d9b095ca5241";
-		var urlImgur= "https://api.imgur.com/3/gallery/search/?q=" + res[1];
+		var urlImgur= "https://api.imgur.com/3/gallery/search/?q=" + res[1] +"&q_type=jpeg" ;
 		axios({
 		url: urlImgur,
 		method: 'get',
 		headers: {"authorization": "Client-ID 018d9b095ca5241" },
 		} ).then( function(resp){
-			console.log(resp.data.data[5]);
-			var lienImage= resp.data.data[5].link;
-			
+			console.log(resp.data.data[0]);
+			var lienImage= resp.data.data[0].link;
 			message.reply('',{embed:{url:lienImage,image:{url:lienImage}}});			
 		});
 	}
@@ -61,7 +60,7 @@ client.on('message', message => {
 				message.reply('Message Incompris');
 			}
 		}
-	console.log(message);
+	//console.log(message);
 });
 
 client.on('presenceUpdate',function(oldMember, newMember) {
