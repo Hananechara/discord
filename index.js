@@ -37,13 +37,8 @@ client.on('message', message => {
 		method: 'get',
 		headers: {"authorization": "Client-ID 018d9b095ca5241" },
 		} ).then(function(resp){
-			var k=0;
-			while( !resp.data.data[k].link ){
-				console.log(resp.data.data[k]);
-				console.log(k.toString());
-				k=k+1
-			}
-			var lienImage= resp.data.data[k].link;
+			console.log(resp.data.data[0]);
+			var lienImage= resp.data.data[0].link;
 			message.reply('',{embed:{url:lienImage,image:{url:lienImage}}});
 		}).catch(console.error);
 	}
