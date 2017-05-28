@@ -43,9 +43,7 @@ client.on('message', message => {
 					k=k+1;
 			}
 			var lienImage= resp.data.data[k].link;
-			message.reply('',{embed:{url:lienImage,image:{url:lienImage}}});
-			break;
-			
+			message.reply('',{embed:{url:lienImage,image:{url:lienImage}}});			
 		});
 	}
 	
