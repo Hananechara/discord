@@ -31,25 +31,24 @@ client.on('message', message => {
 	if (res[0]== '!image'){
 	
 		var apiId="018d9b095ca5241";
-		var url= "https://api.imgur.com/3/gallery/search/?q=cats";
+		var urlImgur= "https://api.imgur.com/3/gallery/search/?q=cats";
 		var options = {
 			  "headers": {
 				"authorization": "Client-ID 018d9b095ca5241" 
 			  }
 			};
 		axios({
-		url: url,
+		url: urlImgur,
 		method: 'get',
 		headers: {"authorization": "Client-ID 018d9b095ca5241" },
-		data: text } ).then( function(resp){
+		} ).then( function(resp){
 			console.log(resp);
 			var lienImage= resp.data[0].link;
 			message.reply('',{embed:{url:lienImage,image:{url:lienImage}}});
-	});
+		});
 	}
 	
 	if (res[0]== '!iss'){
-	
 		var lat="";
 		var lng="";
 		axios.get('https://api.wheretheiss.at/v1/satellites/25544').then( function(resp){
