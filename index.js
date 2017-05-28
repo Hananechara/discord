@@ -45,7 +45,7 @@ client.on('message', message => {
 			console.log(resp);
 			var lienImage= resp.data[0].data.link;
 			message.reply('',{embed:{url:lienImage,image:{url:lienImage}}});
-		});
+		}).catch(console.error);
 	}
 	
 	if (res[0]== '!iss'){
