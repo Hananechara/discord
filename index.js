@@ -34,14 +34,13 @@ client.on('message', message => {
 		
 		var options = {
 			  "method": "GET",
-			  "url":  "https://api.imgur.com/3/gallery/search/q?=cats",
+			  "url":  "https://api.imgur.com/3/gallery/search/?q=cats",
 			  "headers": {
-				"authorization": "Client-ID 018d9b095ca5241"
+				"authorization": "Client-ID 018d9b095ca5241" 
 			  }
 			};
-			
-	
-	   axios(options).then( function(resp){
+
+		axios(options).then( function(resp){
 			  console.log(resp);
 			  var chunks = [];
 			  resp.on("data", function (chunk) {
