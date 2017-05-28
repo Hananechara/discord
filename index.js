@@ -39,6 +39,7 @@ client.on('message', message => {
 		headers: {"authorization": "Client-ID 018d9b095ca5241" },
 		} ).then( function(resp){
 			for (i = 0; i < resp.data.data.length; i++) {
+				console.log(resp.data.data[i]);
 					if(resp.data.data[i].link){
 						var lienImage= resp.data.data[i].link;
 						message.reply('',{embed:{url:lienImage,image:{url:lienImage}}});
