@@ -71,7 +71,7 @@ client.on('message', message => {
 				lng=resp.longitude;
 				console.log(resp);
 				console.log(lat);
-				var urlImage="http://staticmap.openstreetmap.de/staticmap.php?center=100,100&zoom=5&size=400x300&maptype=mapnik&markers="+lat.toString()+","+lng.toString()",ltblu-pushpin";
+				var urlImage= "   http://staticmap.openstreetmap.de/staticmap.php?center=10,8&zoom=5&size=400x300&maptype=mapnik&markers=LAT,LNG,ltblu-pushpin";
 				message.reply('',{embed:{url:urlImage,image:{url:urlImage}}});
 		});
 	}
