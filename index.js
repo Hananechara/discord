@@ -31,12 +31,8 @@ client.on('message', message => {
 	if (res[0]== '!image'){
 	
 		var apiId="018d9b095ca5241";
-		var urlImgur= "https://api.imgur.com/3/gallery/search/?q=cats";
-		var options = {
-			  "headers": {
-				"authorization": "Client-ID 018d9b095ca5241" 
-			  }
-			};
+		var urlImgur= "https://api.imgur.com/3/gallery/search/?q="+res[1];
+		
 		axios({
 		url: urlImgur,
 		method: 'get',
@@ -44,7 +40,7 @@ client.on('message', message => {
 		} ).then( function(resp){
 			console.log(resp.data.data[0]);
 			var lienImage= resp.data.data[0].link;
-			//message.reply('',{embed:{url:lienImage,image:{url:lienImage}}});
+			message.reply('',{embed:{url:lienImage,image:{url:lienImage}}});
 		}).catch(console.error);
 	}
 	
@@ -65,9 +61,7 @@ client.on('message', message => {
 				message.reply('Message Incompris');
 			}
 		}
-	
-	
-  	//console.log(message);
+	console.log(message);
 });
 
 client.on('presenceUpdate',function(oldMember, newMember) {
