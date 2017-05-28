@@ -31,22 +31,22 @@ client.on('message', message => {
 	if (res[0]== '!image'){
 	
 		var apiId="018d9b095ca5241";
-		var urlImgur= "https://api.imgur.com/3/gallery/search/?q=" +res[1];
-		
+		var urlImgur= "https://api.imgur.com/3/gallery/search/?q=" + res[1] + "&q_type=jpeg&q_size_px=100";
 		axios({
 		url: urlImgur,
 		method: 'get',
 		headers: {"authorization": "Client-ID 018d9b095ca5241" },
 		} ).then( function(resp){
-			for (var i = 0; i < resp.data.data.length; i++) {
-				console.log(resp.data.data[i]);
-					if(resp.data.data[i].link){
-						var lienImage= resp.data.data[i].link;
-						message.reply('',{embed:{url:lienImage,image:{url:lienImage}}});
-						break;
-					}
-		}			
-		}).catch(console.error);
+			var k=0;
+			while ( (k < resp.data.data.length) && !resp.data.data[k].link ) {
+					console.log(resp.data.data[k]);
+					k=k+1;
+			}
+			var lienImage= resp.data.data[k].link;
+			message.reply('',{embed:{url:lienImage,image:{url:lienImage}}});
+			break;
+			
+		});
 	}
 	
 	if (res[0]== '!iss'){
