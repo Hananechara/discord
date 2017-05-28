@@ -28,9 +28,7 @@ client.on('message', message => {
 		});
 	}
 
-
 	if (res[0]== '!image'){
-	
 	
 		var apiId="018d9b095ca5241"
 		
@@ -47,16 +45,16 @@ client.on('message', message => {
 			  console.log(resp);
 			  var chunks = [];
 			  resp.on("data", function (chunk) {
-				console.log(chunk);
+				//console.log(chunk);
 				chunks.push(chunk);
 			  });
 			  resp.on("end", function () {
 				var body = Buffer.concat(chunks);
-				console.log(body.toString());
-				console.log(body);
+				//console.log(body.toString());
+				//console.log(body);
 			var lienImage= body[0].link;
 			
-			console.log(lienImage);
+			//console.log(lienImage);
 			message.reply('',{embed:{url:lienImage,image:{url:lienImage}}});
 		});
 	}).catch(console.error);
