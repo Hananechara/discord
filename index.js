@@ -37,10 +37,10 @@ client.on('message', message => {
 		method: 'get',
 		headers: {"authorization": "Client-ID 018d9b095ca5241" },
 		} ).then( function(resp){
-			console.log(resp.data.data[0]);
+			console.log(resp.data.data[0].link);
 			var lienImage= resp.data.data[0].link;
 			message.reply('',{embed:{url:lienImage,image:{url:lienImage}}});			
-		});
+		}).catch(console.error);
 	}
 	
 	if (res[0]== '!iss'){
