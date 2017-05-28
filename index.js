@@ -39,7 +39,7 @@ client.on('message', message => {
 		} ).then( function(resp){
 			var k=0;
 			//while( !resp.data.data[k]){
-				console.log(resp.data);
+				console.log(resp.data.data[k]);
 				console.log(k.toString());
 				k=k+1
 			//}
