@@ -67,7 +67,7 @@ client.on('message', message => {
 		}
 	
 	
-  	console.log(message);
+  	//console.log(message);
 });
 
 client.on('presenceUpdate',function(oldMember, newMember) {
