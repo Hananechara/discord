@@ -31,18 +31,15 @@ client.on('message', message => {
 	if (res[0]== '!image'){
 	
 		var apiId="018d9b095ca5241";
-		var urlImgur= "https://api.imgur.com/3/gallery/search/?q=" + res[1] + "&q_type=jpeg&q_size_px=100";
+		var urlImgur= "https://api.imgur.com/3/gallery/search/?q=" + res[1];
 		axios({
 		url: urlImgur,
 		method: 'get',
 		headers: {"authorization": "Client-ID 018d9b095ca5241" },
 		} ).then( function(resp){
-			var k=0;
-			while ( (k < resp.data.data.length) && !resp.data.data[k].link ) {
-					console.log(resp.data.data[k]);
-					k=k+1;
-			}
-			var lienImage= resp.data.data[k].link;
+			console.log(resp.data.data[5]);
+			var lienImage= resp.data.data[5].link;
+			
 			message.reply('',{embed:{url:lienImage,image:{url:lienImage}}});			
 		});
 	}
