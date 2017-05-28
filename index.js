@@ -31,14 +31,14 @@ client.on('message', message => {
 	if (res[0]== '!image'){
 	
 		var apiId="018d9b095ca5241";
-		var urlImgur= "https://api.imgur.com/3/gallery/search/?q=" +res[1]+ "&q_type=jpeg&q_size_px=200";
+		var urlImgur= "https://api.imgur.com/3/gallery/search/?q=" +res[1];
 		
 		axios({
 		url: urlImgur,
 		method: 'get',
 		headers: {"authorization": "Client-ID 018d9b095ca5241" },
 		} ).then( function(resp){
-			for (i = 0; i < resp.data.data.length; i++) {
+			for (var i = 0; i < resp.data.data.length; i++) {
 				console.log(resp.data.data[i]);
 					if(resp.data.data[i].link){
 						var lienImage= resp.data.data[i].link;
