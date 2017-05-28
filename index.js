@@ -31,7 +31,7 @@ client.on('message', message => {
 	if (res[0]== '!image'){
 	
 		var apiId="018d9b095ca5241";
-		var urlImgur= "https://api.imgur.com/3/gallery/search/?q=" + res[1] ;
+		var urlImgur= "https://api.imgur.com/3/gallery/search/?q=" + res[1] + "q_type=gif";
 		axios({
 		url: urlImgur,
 		method: 'get',
