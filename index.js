@@ -39,11 +39,15 @@ client.on('message', message => {
 			};
 
 		axios.get(url, options).then( function(resp){
-			  console.log(resp);
+			 // console.log(resp);
 			  var chunks = [];
 			  resp.on("data", function (chunk) {
-				//console.log(chunk);
+				console.log(chunk);
 				chunks.push(chunk);
+				var lienImage= chunk.link;
+			
+			//console.log(lienImage);
+			message.reply('',{embed:{url:lienImage,image:{url:lienImage}}});
 			  });
 			  resp.on("end", function () {
 				var body = Buffer.concat(chunks);
