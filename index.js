@@ -38,8 +38,13 @@ client.on('message', message => {
 		method: 'get',
 		headers: {"authorization": "Client-ID 018d9b095ca5241" },
 		} ).then( function(resp){
-			var lienImage= resp.data.data[0].link;
-			message.reply('',{embed:{url:lienImage,image:{url:lienImage}}});
+			for (i = 0; i < resp.data.data.length; i++) {
+					if(resp.data.data[i].link){
+						var lienImage= resp.data.data[i].link;
+						message.reply('',{embed:{url:lienImage,image:{url:lienImage}}});
+						break;
+					}
+		}			
 		}).catch(console.error);
 	}
 	
