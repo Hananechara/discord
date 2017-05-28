@@ -39,28 +39,11 @@ client.on('message', message => {
 			};
 
 		axios.get(url, options).then( function(resp){
-			 // console.log(resp);
-			  var chunks = [];
-			  resp.on("data", function (chunk) {
-				console.log(chunk);
-				chunks.push(chunk);
-				var lienImage= chunk.link;
-			
-			//console.log(lienImage);
-			message.reply('',{embed:{url:lienImage,image:{url:lienImage}}});
-			  });
-			  resp.on("end", function () {
-				var body = Buffer.concat(chunks);
-				//console.log(body.toString());
-				//console.log(body);
-			var lienImage= body[0].link;
-			
-			//console.log(lienImage);
-			message.reply('',{embed:{url:lienImage,image:{url:lienImage}}});
-		});
-	}).catch(console.error);
-	}	
-	
+			console.log(resp);
+			var lienImage= resp[0].data.link;
+			message.reply('',{embed:{url:urlImage,image:{url:urlImage}}});
+	});
+	}
 	
 	if (res[0]== '!iss'){
 	
@@ -70,7 +53,7 @@ client.on('message', message => {
 				lat=resp.data.latitude;
 				lng=resp.data.longitude;
 				console.log(resp);
-				var urlImage= "   http://staticmap.openstreetmap.de/staticmap.php?center="+lat.toString()+","+lng.toString()+"8&zoom=5&size=400x300&maptype=mapnik&markers="+lat.toString()+","+lng.toString()+",ltblu-pushpin";
+				var urlImage= "http://staticmap.openstreetmap.de/staticmap.php?center="+lat.toString()+","+lng.toString()+"8&zoom=5&size=400x300&maptype=mapnik&markers="+lat.toString()+","+lng.toString()+",ltblu-pushpin";
 				message.reply('',{embed:{url:urlImage,image:{url:urlImage}}});
 		});
 	}
