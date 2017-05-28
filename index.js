@@ -60,6 +60,20 @@ client.on('message', message => {
 		});
 	}).catch(console.error);
 	}	
+	
+	
+	if (res[0]== '!iss'){
+	
+		var lat=0;
+		var lng=0;
+		axios.get('https://api.wheretheiss.at/v1/satellites/25544').then(
+			function(resp){
+				lat=resp.latitude;
+				lng=resp.longitude;
+				var urlImage="http://staticmap.openstreetmap.de/staticmap.php?center=100,100&zoom=5&size=400x300&maptype=mapnik&markers="+lat.toString()+","+lng.toString()+",ltblu-pushpin";
+				message.reply('',{embed:{url:urlImage,image:{url:urlImage}}});
+		});
+	}
 }
 	else{
 			if ( !message.author.bot){
